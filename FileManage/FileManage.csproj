@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Resouses\Develop\" />
+    <Folder Include="Resouses\Office\" />
+    <Folder Include="Resouses\System\" />
+    <Folder Include="Resouses\Tool\" />
+  </ItemGroup>
+
+</Project>

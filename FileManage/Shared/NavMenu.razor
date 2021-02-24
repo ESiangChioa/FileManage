@@ -1,0 +1,42 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">文件管理</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+             <ul class="nav flex-column">
+                 <li class="nav-item px-3">
+                     <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                         <span class="oi oi-home" aria-hidden="true"></span> 开发类
+                     </NavLink>
+                 </li>
+                 <li class="nav-item px-3">
+                     <NavLink class="nav-link" href="office">
+                         <span class="oi oi-plus" aria-hidden="true"></span> 办公类
+                     </NavLink>
+                 </li>
+                 <li class="nav-item px-3">
+                     <NavLink class="nav-link" href="system">
+                         <span class="oi oi-list-rich" aria-hidden="true"></span>系统类
+                     </NavLink>
+                 </li>
+                 <li class="nav-item px-3">
+                     <NavLink class="nav-link" href="tool">
+                         <span class="oi oi-home" aria-hidden="true"></span> 工具类
+                     </NavLink>
+                 </li>
+             </ul>
+         </div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

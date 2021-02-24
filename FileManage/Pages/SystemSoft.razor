@@ -1,0 +1,44 @@
+﻿@page "/system"
+@using FileManage.Data
+@inject FileInfoService FileService
+<h1>系统类列表</h1>
+
+
+@if (FileInfoDatas == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>发布时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var file in FileInfoDatas)
+        {
+            <tr>
+                <td>@file.Name</td>
+                <td>@file.Date.ToShortDateString()</td>
+                <td><a href="@file.FilePath" download="@file.Name">下载</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+@code{
+
+    private FileInfoData[] FileInfoDatas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        FileInfoDatas = await FileService.GetForecastAsync("System");
+    }
+
+}
